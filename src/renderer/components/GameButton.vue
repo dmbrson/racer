@@ -1,37 +1,40 @@
 <template>
-    <button class="btn">
-        <slot></slot>
-    </button>
-
+  <button class="comic-button">
+    <slot></slot>
+  </button>
 </template>
 
-<script>
-    
-</script>
+<script></script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Roboto:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Roboto:wght@700&display=swap");
 
-.btn {
-    background: none;
-    font-size: 20px;
-    color: #2f1e1e;
-    margin-top: 10px;
-    border: 3px solid #7f9e9f;
-    border-radius: 10px;
-    background: #7f9e9f;
-    padding: 10px 25px;
-    font-family: 'Comfortaa', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-}
-.btn:hover {
-    background-color: #0a2d2b;
-    color: gray;
-    border-color: #0a2d2b;
+.comic-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #ff5252;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #000;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.btn:focus {
-    outline: none;
+.comic-button:hover {
+  background-color: #fff;
+  color: #ff5252;
+  border: 2px solid #ff5252;
+  box-shadow: 5px 5px 0px #ff5252;
+}
+
+.comic-button:active {
+  background-color: #fcf414;
+  box-shadow: none;
+  transform: translateY(4px);
 }
 </style>
