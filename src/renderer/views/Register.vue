@@ -200,7 +200,7 @@ export default {
 .form {
   display: flex;
   flex-direction: column;
-  background-color: #2a2a3f;
+  background-color: #dbd9db;
   border-radius: 5px;
   padding: 45px;
   align-items: center;

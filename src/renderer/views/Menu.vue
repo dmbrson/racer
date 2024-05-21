@@ -63,7 +63,7 @@ export default defineComponent({
 .menu {
   display: flex;
   flex-direction: column;
-  margin-top: 15%;
+  margin-top: 20%;
 }
 
 .buttons {

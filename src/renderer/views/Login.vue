@@ -1,57 +1,59 @@
 <template>
-  <div class="login-form">
-    <form @submit.prevent="login">
-      <div class="form">
-        <div class="wave-group">
-          <input v-model="username" type="text" required class="input" />
-          <span class="bar"></span>
-          <label class="label">
-            <span class="label-char" style="--index: 0">И</span>
-            <span class="label-char" style="--index: 1">м</span>
-            <span class="label-char" style="--index: 2">я</span>
-            <span class="label-char" style="--index: 3">&nbsp;</span>
-            <span class="label-char" style="--index: 4">П</span>
-            <span class="label-char" style="--index: 4">о</span>
-            <span class="label-char" style="--index: 4">л</span>
-            <span class="label-char" style="--index: 4">ь</span>
-            <span class="label-char" style="--index: 4">з</span>
-            <span class="label-char" style="--index: 4">о</span>
-            <span class="label-char" style="--index: 4">в</span>
-            <span class="label-char" style="--index: 4">а</span>
-            <span class="label-char" style="--index: 4">т</span>
-            <span class="label-char" style="--index: 4">е</span>
-            <span class="label-char" style="--index: 4">л</span>
-            <span class="label-char" style="--index: 4">я</span>
-          </label>
+  <div class="container">
+    <div class="login-form">
+      <form @submit.prevent="login">
+        <div class="form">
+          <div class="wave-group">
+            <input v-model="username" type="text" required class="input" />
+            <span class="bar"></span>
+            <label class="label">
+              <span class="label-char" style="--index: 0">И</span>
+              <span class="label-char" style="--index: 1">м</span>
+              <span class="label-char" style="--index: 2">я</span>
+              <span class="label-char" style="--index: 3">&nbsp;</span>
+              <span class="label-char" style="--index: 4">П</span>
+              <span class="label-char" style="--index: 4">о</span>
+              <span class="label-char" style="--index: 4">л</span>
+              <span class="label-char" style="--index: 4">ь</span>
+              <span class="label-char" style="--index: 4">з</span>
+              <span class="label-char" style="--index: 4">о</span>
+              <span class="label-char" style="--index: 4">в</span>
+              <span class="label-char" style="--index: 4">а</span>
+              <span class="label-char" style="--index: 4">т</span>
+              <span class="label-char" style="--index: 4">е</span>
+              <span class="label-char" style="--index: 4">л</span>
+              <span class="label-char" style="--index: 4">я</span>
+            </label>
+          </div>
+          <div class="wave-group">
+            <input
+              v-model="password"
+              required
+              id="password"
+              type="password"
+              class="input"
+            />
+            <span class="bar"></span>
+            <label class="label">
+              <span class="label-char" style="--index: 0">П</span>
+              <span class="label-char" style="--index: 1">а</span>
+              <span class="label-char" style="--index: 2">р</span>
+              <span class="label-char" style="--index: 3">о</span>
+              <span class="label-char" style="--index: 4">л</span>
+              <span class="label-char" style="--index: 5">ь</span>
+            </label>
+          </div>
+          <div>
+            <game-button type="submit" class="enter"> Войти </game-button>
+          </div>
+          <div>
+            <router-link to="/register">
+              <a class="reg">Регистрация</a>
+            </router-link>
+          </div>
         </div>
-        <div class="wave-group">
-          <input
-            v-model="password"
-            required
-            id="password"
-            type="password"
-            class="input"
-          />
-          <span class="bar"></span>
-          <label class="label">
-            <span class="label-char" style="--index: 0">П</span>
-            <span class="label-char" style="--index: 1">а</span>
-            <span class="label-char" style="--index: 2">р</span>
-            <span class="label-char" style="--index: 3">о</span>
-            <span class="label-char" style="--index: 4">л</span>
-            <span class="label-char" style="--index: 5">ь</span>
-          </label>
-        </div>
-        <div>
-          <game-button type="submit" class="enter"> Войти </game-button>
-        </div>
-        <div>
-          <router-link to="/register">
-            <a class="reg">Регистрация</a>
-          </router-link>
-        </div>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -97,6 +99,31 @@ export default {
 </script>
 
 <style scoped lang="css">
+.container {
+  width: 100%;
+  height: 100%;
+  --s: 150px; /* control the size */
+  --c1: #ff847c;
+  --c2: #e84a5f;
+  --c3: #fecea8;
+  --c4: #99b898;
+
+  background: conic-gradient(
+      from 45deg at 75% 75%,
+      var(--c3) 90deg,
+      var(--c1) 0 180deg,
+      #0000 0
+    ),
+    conic-gradient(from -45deg at 25% 25%, var(--c3) 90deg, #0000 0),
+    conic-gradient(from -45deg at 50% 100%, #0000 180deg, var(--c3) 0),
+    conic-gradient(
+      from -45deg,
+      var(--c1) 90deg,
+      var(--c2) 0 225deg,
+      var(--c4) 0
+    );
+  background-size: var(--s) var(--s);
+}
 .wave-group {
   position: relative;
 }
@@ -105,7 +132,7 @@ export default {
   padding: 10px 10px 10px 5px;
   display: block;
   width: 200px;
-  color: #dbd9db;
+  color: #221322;
   border: none;
   border-bottom: 1px solid #515151;
   background: transparent;
@@ -180,7 +207,7 @@ export default {
 .form {
   display: flex;
   flex-direction: column;
-  background-color: #2a2a3f;
+  background-color: #dbd9db;
   border-radius: 5px;
   padding: 45px;
   align-items: center;
@@ -196,5 +223,15 @@ export default {
 
 input:focus {
   outline: none;
+}
+.reg {
+  font-size: 17px;
+  color: #e84a5f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.enter {
+  margin-bottom: 15%;
 }
 </style>
