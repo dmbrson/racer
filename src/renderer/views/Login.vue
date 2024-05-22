@@ -99,31 +99,6 @@ export default {
 </script>
 
 <style scoped lang="css">
-.container {
-  width: 100%;
-  height: 100%;
-  --s: 150px; /* control the size */
-  --c1: #ff847c;
-  --c2: #e84a5f;
-  --c3: #fecea8;
-  --c4: #99b898;
-
-  background: conic-gradient(
-      from 45deg at 75% 75%,
-      var(--c3) 90deg,
-      var(--c1) 0 180deg,
-      #0000 0
-    ),
-    conic-gradient(from -45deg at 25% 25%, var(--c3) 90deg, #0000 0),
-    conic-gradient(from -45deg at 50% 100%, #0000 180deg, var(--c3) 0),
-    conic-gradient(
-      from -45deg,
-      var(--c1) 90deg,
-      var(--c2) 0 225deg,
-      var(--c4) 0
-    );
-  background-size: var(--s) var(--s);
-}
 .wave-group {
   position: relative;
 }
@@ -132,7 +107,7 @@ export default {
   padding: 10px 10px 10px 5px;
   display: block;
   width: 200px;
-  color: #221322;
+  color: #2f1e1e;
   border: none;
   border-bottom: 1px solid #515151;
   background: transparent;

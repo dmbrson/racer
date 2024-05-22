@@ -71,15 +71,15 @@ export default defineComponent({
 
 .row-table {
   display: flex;
-  border-bottom: 5px solid #060223;
-  background-color: aliceblue;
+  border-bottom: 5px solid #a3a3a3;
+  background-color: #dbd9db;
 }
 
 .name {
   display: flex;
   justify-content: center;
   width: 50%;
-  border-right: 5px solid #060223;
+  border-right: 5px solid #a3a3a3;
   padding: 5px;
 }
 
@@ -91,10 +91,11 @@ export default defineComponent({
 }
 
 .header {
-  font-size: 30px;
+  font-size: 45px;
+  font-weight: bolder;
   text-align: center;
   padding: 20px;
-  color: #221322;
+  color: #2f1e1e;
   font-weight: 700;
 }
 </style>

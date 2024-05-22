@@ -126,7 +126,7 @@ export default {
   display: block;
   width: 200px;
   border: none;
-  color: #dbd9db;
+  color: #2f1e1e;
   border-bottom: 1px solid #515151;
   background: transparent;
 }
