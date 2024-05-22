@@ -1,10 +1,11 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Menu from '../views/Menu.vue'
-import Profile from "../views/Profile.vue";
-import Game from "../views/Game.vue";
-import Leaderboard from "../views/Leaderboard.vue";
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import Menu from '../views/Menu.vue';
+import Profile from '../views/Profile.vue';
+import Game from '../views/Game.vue';
+import Leaderboard from '../views/Leaderboard.vue';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
+import Pause from '../views/Pause.vue'; // Добавляем импорт компонента паузы
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -17,38 +18,42 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Profile',
     component: Profile,
     meta: { requiresAuth: true },
-},
-{
+  },
+  {
     path: '/game',
     name: 'Game',
     component: Game,
-},
-{
+  },
+  {
     path: '/leaderboard',
     name: 'LeaderBoard',
-    component: Leaderboard
-},
-{
-  path: '/',
-  name: 'Menu',
-  component: Menu,
-},
-{
-  path: '/register',
-  name: 'Register',
-  component: Register,
-},
-]
+    component: Leaderboard,
+  },
+  {
+    path: '/',
+    name: 'Menu',
+    component: Menu,
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
+  },
+  {
+    path: '/pause', // Добавляем новый путь для страницы паузы
+    name: 'Pause',
+    component: Pause,
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
-})
+  routes,
+});
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some((route) => route.meta.requiresAuth)) {
     if (!localStorage.getItem('token')) {
-
       next({ name: 'Login' });
     } else {
       next();
@@ -58,4 +63,4 @@ router.beforeEach((to, from, next) => {
   }
 });
 
-export default router
+export default router;

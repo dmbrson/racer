@@ -1,7 +1,32 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const isPaused = ref(false);
+
+const handleKeydown = (event: KeyboardEvent) => {
+  if (event.key === 'p' || event.key === 'P') {
+    isPaused.value = !isPaused.value;
+    if (isPaused.value) {
+      router.push('/pause');
+    } else {
+      router.back();
+    }
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeydown);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', handleKeydown);
+});
+</script>
 
 <template>
-  <router-view> </router-view>
+  <router-view />
 </template>
 
 <style lang="css">
@@ -31,7 +56,6 @@ body {
   --c2: #e84a5f;
   --c3: #fecea8;
   --c4: #99b898;
-  color: #7f9e9f;
   color: #7f9e9f;
 }
 
