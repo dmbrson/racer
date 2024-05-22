@@ -13,7 +13,7 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 const resumeGame = () => {
-  alert('Эта функция пока не доступна');
+  alert('Что ты думал, в сказку попал? АХАХАХАХА плаки-плаки, начинай заново');
 };
 
 const restartGame = () => {
