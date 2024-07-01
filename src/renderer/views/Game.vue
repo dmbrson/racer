@@ -2,6 +2,28 @@
 import { onMounted, nextTick } from "vue";
 import { Vector3 } from "./Vector3";
 
+
+import { ref, computed, watch, onMounted } from 'vue';
+
+let playerPos = ref({ z: 0 }); // или другое начальное значение
+const time = ref(0); // начальное значение времени
+const User = ref({ score: 0 }); // или другое начальное значение счёта пользователя
+
+const currScore = computed(() => {
+  return playerPos.value.z / 1000;
+});
+
+watch(time, (newTime) => {
+  if (newTime === 0) {
+    updateScore();
+  }
+});
+
+const updateScore = () => {
+  if (currScore.value > User.score) {
+    User.score = currScore.value;
+  }
+};
 const oninitCanvas = () => {
 	nextTick(() => {
 		/////////////////////////////////////////////////////////////////////////////////////
@@ -99,8 +121,7 @@ const roadEnd = 1e4;
 // Глобальные игровые переменные
 /////////////////////////////////////////////////////////////////////////////////////
 
-// Позиция игрока в виде 3D вектора
-let playerPos;
+// Позиция игрока в виде 3D вектор
 // Скорость игрока в виде 3D вектора
 let playerVelocity;
 // Пружина для крена игрока
@@ -129,6 +150,7 @@ let time;
 let lastUpdate = 0;
 // Коррекция частоты кадров
 let timeBuffer = 0;
+
 
 function StartLevel() {
 	/////////////////////////////////////////////////////////////////////////////////////
@@ -901,7 +923,6 @@ for (i = mountainCount; i--; ) {
 					}
 				}
 			}
-
 			if (mouseWasPressed) {
 				// показать и обновить время
 				DrawText(
@@ -911,7 +932,7 @@ for (i = mountainCount; i--; ) {
 				// установить правое выравнивание для расстояния
 				context.textAlign = "right";
 				// показать расстояние
-				DrawText(0 | (playerPos.z / 1e3), c.width - 9);
+				DrawText(0 | (currScore), c.width - 9);
 			} else {
 				// установить центральное выравнивание для заголовка
 				context.textAlign = "center";
@@ -1164,6 +1185,7 @@ for (i = mountainCount; i--; ) {
 onMounted(() => {
 	oninitCanvas();
 });
+
 
 </script>
 
